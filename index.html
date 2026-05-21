@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cité de Glanum - Le Réveil de la Cité Fantôme</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+tailwind.config = {
+darkMode: "class",
+theme: {
+extend: {
+"colors": {
+"on-tertiary-fixed": "#1c1c18",
+"outline": "#877366",
+"inverse-surface": "#303030",
+"on-primary-container": "#fffbff",
+"secondary": "#586330",
+"tertiary-container": "#77746f",
+"on-secondary": "#ffffff",
+"surface-dim": "#dcd9d9",
+"surface-tint": "#924c00",
+"tertiary-fixed": "#e6e2dc",
+"surface-container": "#f0eded",
+"on-surface": "#1b1c1c",
+"surface": "#fcf9f8",
+"primary-fixed-dim": "#ffb781",
+"secondary-fixed": "#dbe9a9",
+"on-primary-fixed": "#2f1400",
+"primary-fixed": "#ffdcc4",
+"on-secondary-container": "#5c6834",
+"secondary-container": "#d8e6a6",
+"on-error": "#ffffff",
+"inverse-on-surface": "#f3f0f0",
+"tertiary": "#5e5c57",
+"inverse-primary": "#ffb781",
+"background": "#fcf9f8",
+"surface-bright": "#fcf9f8",
+"surface-variant": "#e4e2e1",
+"primary": "#8f4a00",
+"on-tertiary-container": "#fffbff",
+"error-container": "#ffdad6",
+"on-secondary-fixed-variant": "#404b1b",
+"on-primary": "#ffffff",
+"tertiary-fixed-dim": "#cac6c0",
+"primary-container": "#ae611a",
+"outline-variant": "#d9c2b3",
+"on-tertiary": "#ffffff",
+"on-primary-fixed-variant": "#6f3800",
+"surface-container-lowest": "#ffffff",
+"on-surface-variant": "#544438",
+"secondary-fixed-dim": "#bfcd8f",
+"on-secondary-fixed": "#171e00",
+"on-tertiary-fixed-variant": "#484742",
+"on-error-container": "#93000a",
+"surface-container-low": "#f6f3f2",
+"error": "#ba1a1a",
+"on-background": "#1b1c1c",
+"surface-container-high": "#eae7e7",
+"surface-container-highest": "#e4e2e1"
+},
+"borderRadius": {
+"DEFAULT": "0.125rem",
+"lg": "0.25rem",
+"xl": "0.5rem",
+"full": "0.75rem"
+},
+"spacing": {
+"unit": "8px",
+"margin-desktop": "64px",
+"margin-mobile": "20px",
+"container-max": "1280px",
+"section-gap": "120px",
+"gutter": "32px"
+},
+"fontFamily": {
+"body-md": ["Inter"],
+"body-lg": ["Inter"],
+"headline-lg": ["Playfair Display"],
+"headline-lg-mobile": ["Playfair Display"],
+"display-lg": ["Playfair Display"],
+"headline-md": ["Playfair Display"],
+"label-sm": ["Inter"],
+"label-lg": ["Inter"],
+"headline-sm": ["Playfair Display"],
+"display-lg-mobile": ["Playfair Display"]
+},
+"fontSize": {
+"body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+"body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+"headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "600" }],
+"headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+"display-lg": ["64px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+"headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+"label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500" }],
+"label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+"headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+"display-lg-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+}
+}
+}
+}
+</script>
+<style>
+body {
+background-color: #F5F2ED;
+color: #2D2D2D;
+overflow-x: hidden;
+}
+.hero-bg {
+background-image: linear-gradient(to bottom, rgba(45, 45, 45, 0.4), rgba(45, 45, 45, 0.7)), url('public/hero-visuel-bandeau-histoire-Glanum.webp.webp');
+background-size: cover;
+background-position: center;
+}
+.text-terracotta { color: #BC6C25; }
+.bg-terracotta { background-color: #BC6C25; }
+.text-olive { color: #606C38; }
+.border-stone { border-color: #E0DCD6; }
+.shadow-ambient { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04); }
+.anecdote-box {
+background-color: #FAF6EE;
+border-left: 3px solid #BC6C25;
+padding: 1.5rem;
+margin-top: 1.5rem;
+font-style: italic;
+}
+</style>
+</head>
+<body class="antialiased font-body-md text-body-md">
+
+<nav class="absolute top-0 w-full z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-8 max-w-container-max mx-auto bg-transparent">
+<div class="font-headline-md text-headline-md font-semibold text-white tracking-tight">
+Glanum
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-white hover:opacity-80 transition-opacity duration-300 font-label-lg uppercase tracking-wider" href="#histoire">L'Histoire</a>
+<a class="text-white/80 hover:text-white transition-colors duration-300 font-label-lg uppercase tracking-wider" href="#antiques">Les Antiques</a>
+<a class="text-white/80 hover:text-white transition-colors duration-300 font-label-lg uppercase tracking-wider" href="#source">La Source</a>
+<a class="text-white/80 hover:text-white transition-colors duration-300 font-label-lg uppercase tracking-wider" href="#quotidien">Vie Quotidienne</a>
+</div>
+<div class="hidden md:block">
+<a class="px-6 py-3 border border-white text-white font-label-lg text-label-lg hover:bg-white hover:text-on-surface transition-colors duration-300 uppercase tracking-widest rounded-lg" href="#visite">
+Préparer la visite
+</a>
+</div>
+</div>
+</nav>
+
+<section class="relative h-screen w-full flex items-center justify-center hero-bg">
+<div class="text-center z-10 px-margin-mobile">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-4">GLANUM</h1>
+<p class="font-headline-md text-headline-md text-white/90 italic font-light tracking-wide">Le Réveil de la Cité Fantôme</p>
+</div>
+</section>
+
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+
+<section id="histoire" class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center mb-section-gap">
+<div class="md:col-span-6 md:col-start-1 z-10 relative">
+<div class="bg-surface p-8 md:p-12 shadow-ambient rounded-lg relative z-20">
+<span class="text-terracotta font-label-lg text-label-lg uppercase tracking-widest block mb-4">Le secret bien gardé des Alpilles</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6 leading-tight">Un voyage dans le temps au cœur de la Provence.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-4">
+Imaginez une ville entière, vibrante de vie, de commerces et de prières, qui disparaît soudainement de la carte pour finir ensevelie sous huit mètres de boue et d’alluvions descendus de la montagne.
+</p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+Pendant près de 1 700 ans, au pied des Alpilles, on a fait pousser des oliviers sans se douter que, juste sous les racines, dormait Glanum, la "Petite Rome" de Provence. Ce n'est qu'en 1921 que des passionnés, comme Jules Formigé et Pierre de Brun, ont donné les premiers coups de pioche pour sortir cette belle endormie de son linceul de terre. Aujourd’hui, le site nous offre un véritable mille-feuille de civilisations : des Gaulois, des Grecs et des Romains qui se sont empilés les uns sur les autres.
+</p>
+</div>
+</div>
+<div class="md:col-span-6 relative">
+<img alt="Ruines de Glanum" class="w-full h-[600px] object-cover shadow-ambient grayscale-[20%] hover:grayscale-0 transition-all duration-700 rounded-lg" src="public/ruines-glanum.jpg"/>
+</div>
+</section>
+
+<div class="w-24 h-px bg-outline-variant mx-auto mb-section-gap"></div>
+
+<section class="mb-section-gap bg-secondary-fixed/50 p-8 md:p-12 rounded-lg">
+<div class="max-w-3xl mx-auto">
+<h3 class="font-headline-md text-headline-md text-terracotta mb-4">🗺️ Votre Itinéraire Complet</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+Suivez ce parcours logique pour vivre une visite complète de Glanum. Comptez environ 1h30 à 2h pour l’ensemble du site, en prenant le temps d’explorer chaque étape.
+</p>
+<div class="space-y-3">
+<p class="font-body-md text-on-surface"><strong>✓ Étape 1 :</strong> Les Antiques (Arc de Triomphe & Mausolée) — À l’entrée du site</p>
+<p class="font-body-md text-on-surface"><strong>✓ Étape 2 :</strong> La Source Sacrée — Au cœur du vallon</p>
+<p class="font-body-md text-on-surface"><strong>✓ Étape 3 :</strong> La Vie Quotidienne (Forum, Thermes, Maison) — Au centre-ville</p>
+<p class="font-body-md text-on-surface"><strong>✓ Étape 4 :</strong> Conseils Pratiques — Avant de partir</p>
+<p class="font-body-md text-on-surface"><strong>✓ Étape 5 :</strong> Le Repos du Guerrier — Sur une terrasse avec un rosé 🍷</p>
+</div>
+</div>
+</section>
+
+<section id="antiques" class="mb-section-gap">
+<div class="text-center mb-16">
+<span class="text-terracotta font-label-lg text-label-lg uppercase tracking-widest block mb-2">Étape 1</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4">Les Sentinelles de la Route : "Les Antiques"</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Avant d’entrer dans la ville, deux géants vous accueillent sur le bord de la route. Ce sont les Antiques, les seuls monuments qui n’ont jamais été enterrés et qui ont fasciné les voyageurs, du roi Charles IX à Nostradamus.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
+<div class="flex flex-col gap-6">
+<img alt="L’Arc de Triomphe" class="w-full h-[450px] object-cover shadow-ambient rounded-lg" src="public/arc de triomphe.jpg"/>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">L’Arc de Triomphe</h3>
+<p class="font-body-md text-body-md text-on-surface-variant border-t border-stone pt-4">
+C’est la porte d’honneur de la ville. Construit sous l’empereur Auguste, il célébrait la conquête de la Gaule. Si vous regardez bien les sculptures sur les côtés, vous y verrez des Gaulois enchaînés à des trophées d’armes. Le message était clair pour ceux qui entraient : ici, c’est Rome qui commande !
+</p>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<img alt="Le Mausolée des Jules" class="w-full h-[450px] object-cover shadow-ambient rounded-lg" src="public/Mausolee.JPG"/>
+<div>
+<h3 class="font-headline-md text-headline-md mb-2">Le Mausolée des Jules (ou des Iulii)</h3>
+<div class="font-body-md text-body-md text-on-surface-variant border-t border-stone pt-4 space-y-4">
+<p>Ne vous laissez pas tromper par son nom, c’est en réalité un cénotaphe (un tombeau vide !). Construit vers 30-20 av. J.-C., il a été érigé par trois frères d’une riche famille locale pour honorer leur père et leur grand-père.</p>
+<div class="anecdote-box">
+<strong>💡 Anecdote de guide :</strong> Le grand-père avait combattu pour Jules César et avait reçu, en récompense, la citoyenneté romaine. C’est un pur monument de "frime" : sur le socle, les sculptures racontent des batailles épiques et des chasses au sanglier pour montrer à tout le monde que, bien que Gaulois d’origine, les Iulii étaient devenus de parfaits et puissants citoyens romains. Le bling-bling de l'époque !
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="source" class="relative py-24 mb-section-gap">
+<div class="absolute inset-0 bg-[#E9EAE0] -mx-margin-mobile md:-mx-margin-desktop z-0"></div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-6 order-2 md:order-1">
+<img alt="La Source Sacrée de Glanum" class="w-full h-[650px] object-cover shadow-ambient rounded-lg" src="public/source-sacree.webp.webp"/>
+</div>
+<div class="md:col-span-5 md:col-start-8 order-1 md:order-2 mb-12 md:mb-0">
+<span class="text-terracotta font-label-lg text-label-lg uppercase tracking-widest block mb-4">Étape 2</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6 text-on-surface">La Source Sacrée : Le Cœur Spirituel</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-4">
+En franchissant les remparts, vous entrez dans un vallon stratégique qui reliait autrefois l'Italie à l'Espagne. Pourquoi s'installer dans ce creux de montagne ? Pour une raison vitale : la Source Sacrée.
+</p>
+<div class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<p><strong>Le Dieu Glan :</strong> Tout a commencé au VIe siècle av. J.-C. avec les Gaulois (les Salyens). Ils vénéraient un dieu guérisseur nommé Glan, dont l'eau de la source était censée soigner tous les maux. On y a même trouvé des traces du "culte des têtes coupées" : les Gaulois exposaient les crânes de leurs ennemis pour protéger la cité... une ambiance un peu plus brute que celle des Romains !</p>
+<p><strong>Le gendre de l'Empereur :</strong> Même les plus puissants venaient ici en cure thermale. Agrippa, le gendre de l'empereur Auguste, souffrait des jambes. Il est venu se faire soigner à Glanum et, pour dire merci à la source, il a fait construire un élégant petit temple dédié à Valetudo, la déesse de la santé.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="quotidien" class="mb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start mb-12">
+<div class="md:col-span-4">
+<span class="text-terracotta font-label-lg text-label-lg uppercase tracking-widest block mb-4">Étape 3</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6">La Vie Quotidienne : Forum, Thermes & Demeures</h2>
+</div>
+<div class="md:col-span-8 font-body-lg text-body-lg text-on-surface-variant md:pt-12">
+En remontant la rue principale, encore dallée et cachant un système d'égouts très moderne pour l'époque, on imagine aisément le brouhaha de la ville et l'effervescence de ses habitants.
+</div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+<div class="bg-surface p-6 shadow-ambient border-t-2 border-stone rounded-lg">
+<h4 class="font-headline-sm text-headline-sm mb-3">Le Forum</h4>
+<p class="text-on-surface-variant font-body-md text-body-md">C'était le cœur battant, là où on votait les lois, où on rendait justice dans la Basilique et où on faisait ses courses au marché. Sous le dallage romain, les archéologues ont découvert un puits à dromos (un puits avec un escalier de 37 marches !) qui servait déjà aux rituels grecs bien avant l'arrivée de César.</p>
+</div>
+<div class="bg-surface p-6 shadow-ambient border-t-2 border-stone rounded-lg">
+<h4 class="font-headline-sm text-headline-sm mb-3">Les Thermes</h4>
+<p class="text-on-surface-variant font-body-md text-body-md">Le confort à la romaine ! Juste à côté, les Thermes montrent que les habitants de Glanum savaient vivre. On y trouvait des piscines (natatio) et surtout un système de chauffage par le sol, l'hypocauste : des esclaves entretenaient des foyers pour chauffer l'air qui circulait sous les briques du sol.</p>
+</div>
+<div class="bg-surface p-6 shadow-ambient border-t-2 border-stone rounded-lg">
+<h4 class="font-headline-sm text-headline-sm mb-3">La Maison des Antes</h4>
+<p class="text-on-surface-variant font-body-md text-body-md">C’est la demeure d’un riche marchand. Elle s’organisait autour d’une cour à colonnes (le péristyle) avec un bassin au milieu pour récupérer l’eau de pluie (l’impluvium). À l'époque, les murs étaient peints de couleurs éclatantes et les sols recouverts de mosaïques raffinées.</p>
+</div>
+</div>
+
+<div class="relative group">
+<img alt="Vue générale du forum de Glanum" class="w-full h-[50vh] object-cover shadow-ambient rounded-lg" src="public/vue-generale-forum.webp"/>
+</div>
+
+<div class="mt-16 max-w-3xl mx-auto border-l-4 border-stone pl-6 md:pl-12 py-4">
+<h3 class="font-headline-sm text-headline-sm mb-4">La fin d'un monde et la naissance de Saint-Rémy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+Vers 260 après J.-C., la fête s'arrête. Les invasions barbares pillent et détruisent la ville. Les survivants abandonnent le vallon et vont s'installer un kilomètre plus loin, dans la plaine, pour fonder ce qui deviendra Saint-Rémy-de-Provence.
+</p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+Pendant des siècles, Glanum a servi de "carrière" : les habitants venaient y chercher des pierres déjà taillées pour construire les maisons du village actuel.
+</p>
+<div class="anecdote-box mt-4">
+<strong>🏛️ Le Conseil incontournable du guide :</strong> Pour voir les "vrais" trésors trouvés sur place (bijoux, statues de guerriers accroupis, et même une tête en marbre de l'impératrice Livie), ne manquez pas de faire un tour à <strong>l'Hôtel de Sade</strong>, au centre du village. C'est là que le mobilier de Glanum est précieusement conservé !
+</div>
+</div>
+</section>
+
+<section class="mb-section-gap flex flex-col items-center justify-center text-center">
+<h2 class="font-headline-md text-headline-md mb-2">Découvrir le site en images</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 max-w-md">Un superbe aperçu vidéo pour vous projeter dans les ruines de la cité avant d'y mettre les pieds.</p>
+<div class="relative w-full max-w-4xl aspect-video shadow-ambient overflow-hidden rounded">
+<iframe class="w-full h-full" src="https://www.youtube.com/embed/jMvQszitrFI" title="Visite de Glanum" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</section>
+
+<section id="visite" class="grid grid-cols-1 md:grid-cols-2 gap-16 border-t border-outline-variant pt-16">
+<div>
+<h3 class="font-headline-sm text-headline-sm mb-6">Étape 4 : Préparer la Visite</h3>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-terracotta">footprint</span>
+<span><strong>Chaussures confortables :</strong> Prévoyez de bonnes chaussures de marche, le sol du site archéologique est resté d'époque (cailloux et pavés irréguliers).</span>
+</li>
+<li class="flex items-start gap-4 pt-4 border-t border-stone">
+<span class="material-symbols-outlined text-terracotta">wb_sunny</span>
+<span><strong>Soleil de Provence :</strong> Le site est entièrement à ciel ouvert et sans zone d'ombre. N'oubliez pas les chapeaux, les lunettes et surtout une bouteille d'eau !</span>
+</li>
+<li class="flex items-start gap-4 pt-4 border-t border-stone">
+<span class="material-symbols-outlined text-terracotta">schedule</span>
+<span><strong>Temps de parcours :</strong> Comptez environ 1h30 à 2h pour apprécier la balade complète à votre rythme, des Antiques jusqu'à la source sacrée.</span>
+</li>
+</ul>
+</div>
+<div class="flex flex-col justify-center items-start md:items-end gap-4 w-full">
+<a class="inline-flex items-center justify-center px-8 py-4 bg-terracotta text-white font-label-lg text-label-lg tracking-widest uppercase hover:opacity-90 transition-opacity duration-300 shadow-sm w-full md:w-[380px] rounded-lg"
+href="https://maps.google.com/?q=Parking+Glanum+Saint-Remy-de-Provence" target="_blank">
+<span class="material-symbols-outlined mr-2">directions_car</span> Ouvrir le GPS : Vers le Parking
+</a>
+<a class="inline-flex items-center justify-center px-8 py-4 border border-outline text-on-surface font-label-lg text-label-lg tracking-widest uppercase hover:bg-surface-variant transition-colors duration-300 w-full md:w-[380px] rounded-lg"
+href="https://maps.google.com/?q=Site+Archeologique+de+Glanum" target="_blank">
+<span class="material-symbols-outlined mr-2">navigation</span> Ouvrir le GPS : Vers l'Entrée du Site
+</a>
+<a class="inline-flex items-center justify-center px-8 py-3 bg-secondary text-white font-label-lg text-label-lg tracking-widest uppercase hover:opacity-90 transition-opacity duration-300 w-full md:w-[380px] rounded-lg"
+href="https://www.site-glanum.fr/decouvrir/histoire-de-glanum" target="_blank">
+<span class="material-symbols-outlined mr-2">language</span> Horaires & Tarifs Officiels
+</a>
+</div>
+</section>
+
+<section class="mb-section-gap bg-gradient-to-r from-pink-100 to-purple-100 p-8 md:p-12 rounded-lg border-2 border-dashed border-terracotta">
+<div class="max-w-3xl mx-auto text-center">
+<span class="text-terracotta font-label-lg text-label-lg uppercase tracking-widest block mb-4">Étape 5 🍷</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6">Le Repos du Guerrier Archéologique</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6 italic">
+"Après avoir marché entre les ruines des Gaulois, des Grecs et des Romains, vous avez mérité une pause bien méritée..."
+</p>
+
+<div class="bg-white p-6 md:p-8 rounded-lg shadow-ambient mb-6">
+<h3 class="font-headline-md text-headline-md text-terracotta mb-4">Le Rituel de Récupération Provençale</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+Dirigez-vous vers une terrasse ombragée du village de Saint-Rémy-de-Provence. Là, dans la brise des Alpilles, commandez-vous :
+</p>
+<div class="space-y-4 text-on-surface-variant">
+<div class="flex gap-4 items-start">
+<span class="text-2xl">🍷</span>
+<div class="text-left">
+<strong class="font-body-lg">1 à 2 verres de Rosé Lubéron</strong>
+<p class="text-sm">Le nectar des dieux provençaux. Frais, pétillant, et tellement apprécié par les archéologues qui ont fouillé Glanum eux-mêmes (probablement).</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<span class="text-2xl">🫒</span>
+<div class="text-left">
+<strong class="font-body-lg">Une Assiette de Tapenade Lubéron</strong>
+<p class="text-sm">Olives noires concassées, ail, anchois... C'est l'équivalent moderne du "pique-nique des Romains". Moins de pestilence que les thermes antiques, promis.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="bg-secondary-fixed p-6 rounded-lg mb-6 border-l-4 border-terracotta">
+<p class="font-body-md text-on-surface font-semibold mb-2">💡 Conseil de guide expérimenté :</p>
+<p class="font-body-md text-on-surface-variant">
+Observez le ciel au-dessus des Alpilles, les mêmes montagnes qui ont vu prospérer Glanum pendant 1 700 ans. Levez votre verre à la résilience des pierres et à la magie de la Provence. Les Romains n'avaient pas le rosé Lubéron, mais ils auraient adoré.
+</p>
+</div>
+
+<p class="font-body-md text-on-surface-variant italic">
+<strong>Bon repos ! 🌞</strong> Vous avez maintenant parcouru Glanum comme un véritable historien en herbe. Santé !
+</p>
+</div>
+</section>
+
+</main>
+
+<footer class="bg-surface-container-highest w-full py-12 px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-unit max-w-container-max mx-auto text-center border-t border-outline-variant">
+<div class="font-headline-sm text-headline-sm text-primary mb-2">
+Glanum
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto mb-4">
+Une page préparée avec soin pour la visite de mes parents adorés. Bonne découverte temporelle au cœur des Alpilles !
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant/70">
+© 2026 Carnet de Voyage Privé JPA.V.. Textes compilés d'après les archives du Centre des Monuments Nationaux et de la commune de Saint-Rémy.
+</div>
+</footer>
+
+</body>
+</html>
