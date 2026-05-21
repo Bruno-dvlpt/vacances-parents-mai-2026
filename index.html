@@ -148,6 +148,16 @@ Glanum
 Préparer la visite
 </a>
 </div>
+<button id="mobile-menu-btn" class="md:hidden text-white text-2xl" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">☰</button>
+</div>
+<div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-black/80 backdrop-blur">
+<div class="flex flex-col gap-4 p-6">
+<a class="text-white hover:opacity-80 transition-opacity duration-300 font-body-md uppercase tracking-wider" href="#histoire" onclick="document.getElementById('mobile-menu').classList.add('hidden')">L'Histoire</a>
+<a class="text-white/80 hover:text-white transition-colors duration-300 font-body-md uppercase tracking-wider" href="#antiques" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Les Antiques</a>
+<a class="text-white/80 hover:text-white transition-colors duration-300 font-body-md uppercase tracking-wider" href="#source" onclick="document.getElementById('mobile-menu').classList.add('hidden')">La Source</a>
+<a class="text-white/80 hover:text-white transition-colors duration-300 font-body-md uppercase tracking-wider" href="#quotidien" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Vie Quotidienne</a>
+<a class="px-4 py-2 border border-white text-white font-body-md text-center hover:bg-white hover:text-black transition-colors duration-300 uppercase tracking-widest rounded-lg" href="#visite" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Préparer la visite</a>
+</div>
 </div>
 </nav>
 
@@ -198,7 +208,7 @@ Suivez ce parcours logique pour vivre une visite complète de Glanum. Comptez en
 
 <section id="antiques" class="mb-section-gap">
 <div class="text-center mb-16">
-<span class="text-terracotta font-label-lg text-label-lg uppercase tracking-widest block mb-2">Étape 1</span>
+<span class="text-terracotta font-label-lg text-label-lg uppercase tracking-widest block mb-4">Étape 1</span>
 <h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4">Les Sentinelles de la Route : "Les Antiques"</h2>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Avant d’entrer dans la ville, deux géants vous accueillent sur le bord de la route. Ce sont les Antiques, les seuls monuments qui n’ont jamais été enterrés et qui ont fasciné les voyageurs, du roi Charles IX à Nostradamus.</p>
 </div>
@@ -300,9 +310,10 @@ Pendant des siècles, Glanum a servi de "carrière" : les habitants venaient y c
 </div>
 </section>
 
-<section id="visite" class="grid grid-cols-1 md:grid-cols-2 gap-16 border-t border-outline-variant pt-16">
+<section id="visite" class="grid grid-cols-1 md:grid-cols-2 gap-16 border-t border-outline-variant pt-16 mb-section-gap">
 <div>
-<h3 class="font-headline-sm text-headline-sm mb-6">Étape 4 : Préparer la Visite</h3>
+<span class="text-terracotta font-label-lg text-label-lg uppercase tracking-widest block mb-4">Étape 4</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6">Préparer la Visite</h2>
 <ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
 <li class="flex items-start gap-4">
 <span class="material-symbols-outlined text-terracotta">footprint</span>
